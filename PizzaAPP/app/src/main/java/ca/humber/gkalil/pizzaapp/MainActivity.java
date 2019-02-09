@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     double totalPriceRotation;
 
+    double sizePrice, pepperoniPrice, garlicPrice, olivesPrice;
+
+
     boolean deliveryCheck = false;
 
     @Override
@@ -100,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putDouble("size", pizza.getPizza_size_price());
+        outState.putDouble("pepperoni", pizza.getPepperoni_price());
+        outState.putDouble("garlic", pizza.getGarlic_price());
+        outState.putDouble("olives", pizza.getOlives_price());
         outState.putDouble("totalprice", totalPrice);
         outState.putBoolean("deliverynote", deliveryCheck);
     }
@@ -116,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
             delivery_note.setText("");
         }
 
+        pizza.setPizza_size_price(savedInstanceState.getDouble("size"));
+        pizza.setPepperoni_price(savedInstanceState.getDouble("pepperoni"));
+        pizza.setGarlic_price(savedInstanceState.getDouble("garlic"));
+        pizza.setOlives_price(savedInstanceState.getDouble("olives"));
     }
 
     @Override
